@@ -4,11 +4,11 @@
 /CONTRIBUTING.md @infinisil
 /LICENSE @infinisil
 
-/.github/CODEOWNERS @infinisil @zimbatm
+/.github/CODEOWNERS @infinisil @infinixbot
 /.github/workflows @infinisil
 /scripts @infinisil
 
-/doc/org-repo.md @infinisil @zimbatm
+/doc/org-repo.md @infinisil @infinixbot
 /doc/discourse.md @infinisil
 /doc/github.md @infinisil
 /doc/matrix.md @infinisil
