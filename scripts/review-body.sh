@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env nix-shell
+#!nix-shell -i bash --pure --keep GH_TOKEN -I nixpkgs=channel:nixpkgs-unstable -p codeowners github-cli gitMinimal
+
 set -euo pipefail
 
 # This script outputs the contents of the regular review issue, see ./github/workflows/review.yml
@@ -40,11 +42,11 @@ while read -r file users; do
     continue
   fi
   echo "- [ ] \`$file\`: $users"
-done < .github/CODEOWNERS
+done < "$root"/.github/CODEOWNERS
 
 echo ""
 
 # Check that all code owners have write permissions
 # `|| true` because this script fails when there are code owners without permissions,
 # which is useful to fail PRs, but not here
-"$SCRIPT_DIR"/unprivileged-owners.sh "$root" "$repo" || true
+bash "$SCRIPT_DIR"/unprivileged-owners.sh "$root" "$repo" || true
